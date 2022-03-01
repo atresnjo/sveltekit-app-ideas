@@ -1,0 +1,37 @@
+{
+	"$id": "620d7785cc50bea6a8d3",
+	"$read": [],
+	"$write": [],
+	"name": "liked_jobs",
+	"enabled": true,
+	"permission": "document",
+	"attributes": [
+		{
+			"key": "jobId",
+			"type": "string",
+			"status": "available",
+			"required": true,
+			"array": false,
+			"size": 255,
+			"default": null
+		},
+		{
+			"key": "userId",
+			"type": "string",
+			"status": "available",
+			"required": false,
+			"array": false,
+			"size": 255,
+			"default": null
+		}
+	],
+	"indexes": [
+		{
+			"key": "userId",
+			"type": "key",
+			"status": "available",
+			"attributes": ["userId"],
+			"orders": ["ASC"]
+		}
+	]
+}
