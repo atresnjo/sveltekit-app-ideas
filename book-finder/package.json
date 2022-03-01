@@ -1,0 +1,45 @@
+{
+	"name": "book-finder",
+	"author": "Adnan Tresnjo",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"preview": "svelte-kit preview",
+		"lint": "prettier --check . && eslint --ignore-path .gitignore .",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@sveltejs/kit": "next",
+		"@tailwindcss/typography": "^0.5.0",
+		"@typescript-eslint/eslint-plugin": "^4.19.0",
+		"@typescript-eslint/parser": "^4.19.0",
+		"autoprefixer": "^10.2.5",
+		"cssnano": "^5.0.1",
+		"eslint": "^7.22.0",
+		"eslint-config-prettier": "^8.1.0",
+		"eslint-plugin-svelte3": "^3.2.0",
+		"postcss": "^8.2.10",
+		"postcss-load-config": "^3.0.1",
+		"prettier": "~2.2.1",
+		"prettier-plugin-svelte": "^2.2.0",
+		"svelte": "^3.44.0",
+		"svelte-preprocess": "^4.7.1",
+		"tslib": "^2.0.0",
+		"typescript": "^4.0.0",
+		"vite": "^2.1.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"@fontsource/fira-mono": "^4.2.2",
+		"@lukeed/uuid": "^2.0.0",
+		"@sveltejs/adapter-netlify": "^1.0.0-next.40",
+		"@sveltejs/adapter-node": "^1.0.0-next.67",
+		"@sveltejs/adapter-static": "^1.0.0-next.26",
+		"@tailwindcss/forms": "^0.3.2",
+		"cookie": "^0.4.1",
+		"daisyui": "^1.22.0",
+		"svelte-simple-modal": "^1.2.0",
+		"tailwindcss": "^3.0.13"
+	}
+}
