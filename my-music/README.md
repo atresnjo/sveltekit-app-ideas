@@ -13,7 +13,7 @@
   - [x] Home page to display trending song and the user playlist
   - Must be able to search, like and dislike songs
   - Must be able to view, add and remove friends
-  - Must be able to update its own user details
+  - [x] Must be able to update its own user details
   - Must be able to open a user profile page, that displays the following content
     - List of liked songs
     - List of friends
