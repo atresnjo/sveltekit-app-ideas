@@ -1,6 +1,5 @@
 <script lang="ts">
   import trcp from '$lib/client/trpc';
-  import MainContentContainer from '$lib/components/MainContentContainer.svelte';
   import * as yup from 'yup';
   import { validator } from '@felte/validator-yup';
   import { createForm } from 'felte';

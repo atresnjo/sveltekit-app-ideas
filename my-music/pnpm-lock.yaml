@@ -15,15 +15,16 @@ dependencies:
   sass: 1.49.8
   superjson: 1.8.1
   svelte-forms-lib: 2.0.1
+  svelte-simple-modal: 1.3.1_svelte@3.46.4
   tailwindcss: 3.0.23_2a12c91f48b4280adc4c14dfe7c50ae2
   tippy.js: 6.3.7
-  trpc-sveltekit: 1.1.2_06a68e6be96a0051d7503e568ccf6955
+  trpc-sveltekit: 1.1.2_d869de57343f4d3ba5301f80a8f1d71f
   yup: 0.32.11
   zod: 3.11.6
 devDependencies:
   '@faker-js/faker': 6.0.0-alpha.7
   '@sveltejs/adapter-node': 1.0.0-next.73
-  '@sveltejs/kit': 1.0.0-next.308_sass@1.49.8+svelte@3.46.4
+  '@sveltejs/kit': 1.0.0-next.310_sass@1.49.8+svelte@3.46.4
   '@types/debounce': 1.2.1
   '@types/node': 17.0.23
   '@typescript-eslint/eslint-plugin': 5.12.0_e73c8ae689e86b0bf0771241168e73ef
@@ -248,7 +249,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-eidd7u1dPHIaBKMjRePrxazUt+Mm/JpnaiKLzZJBdamhBiiYIb+epkPLLqfG5Oo346/0HLKwFRAM/FXn3u3BHQ==
-  /@sveltejs/kit/1.0.0-next.308_sass@1.49.8+svelte@3.46.4:
+  /@sveltejs/kit/1.0.0-next.310_sass@1.49.8+svelte@3.46.4:
     dependencies:
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.41_svelte@3.46.4+vite@2.9.1
       sade: 1.8.1
@@ -262,7 +263,7 @@ packages:
       sass: '*'
       svelte: ^3.44.0
     resolution:
-      integrity: sha512-/ORLef5kZEMTUgUkdSQ5Lsn3IKBRNYmLdJ26JjtSa03nPKsybvSMiGIho9WS6ESBw3+XaYF91TqksTyr/gTeoA==
+      integrity: sha512-pTyMyaoyHS+V5cQZIQMfQXmLkhw1VaRwT9avOSgwDc0QBpnNw2LdzwoPYsUr96ca5B6cfT3SMUNolxErTNHmPQ==
   /@sveltejs/vite-plugin-svelte/1.0.0-next.41_svelte@3.46.4+vite@2.9.1:
     dependencies:
       '@rollup/pluginutils': 4.2.0
@@ -2870,6 +2871,14 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-ttw17lJfb/dx2ZJT9sesaXT5l7mPQ9Apx1H496Kli3Hkk7orIRGpOw6rCPkRNzr6ueVPqb4vzodS5x7sBFhKHw==
+  /svelte-simple-modal/1.3.1_svelte@3.46.4:
+    dependencies:
+      svelte: 3.46.4
+    dev: false
+    peerDependencies:
+      svelte: ^3.31.2
+    resolution:
+      integrity: sha512-xBeK7VkGBuvqIm1J5eqnLqGIRKDtnsYzu8yVCLuO4rIuv4BMj4S6r0PGMgd4EFMgZwhmmqZPdrsPCDlDC6HUCw==
   /svelte/3.46.4:
     dev: true
     engines:
@@ -2956,9 +2965,9 @@ packages:
     dev: false
     resolution:
       integrity: sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
-  /trpc-sveltekit/1.1.2_06a68e6be96a0051d7503e568ccf6955:
+  /trpc-sveltekit/1.1.2_d869de57343f4d3ba5301f80a8f1d71f:
     dependencies:
-      '@sveltejs/kit': 1.0.0-next.308_sass@1.49.8+svelte@3.46.4
+      '@sveltejs/kit': 1.0.0-next.310_sass@1.49.8+svelte@3.46.4
       '@trpc/server': 9.19.0
     dev: false
     peerDependencies:
@@ -3181,6 +3190,7 @@ specifiers:
   svelte-check: ^2.4.5
   svelte-forms-lib: ^2.0.1
   svelte-preprocess: ^4.10.3
+  svelte-simple-modal: ^1.3.1
   tailwindcss: ^3.0.23
   tippy.js: ^6.3.7
   trpc-sveltekit: ^1.1.2

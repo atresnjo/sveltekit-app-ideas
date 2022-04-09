@@ -24,23 +24,23 @@ model Artist {
 }
 
 model User {
-  id         Int            @id @default(autoincrement())
-  username   String
-  email      String
-  password   String
-  followedBy Follows[]      @relation("follower")
-  following  Follows[]      @relation("following")
-  playlist   UserPlaylist[]
-
+  id              Int            @id @default(autoincrement())
+  username        String
+  email           String
+  password        String
+  playlist        UserPlaylist[]
+  friends         UserFriends[]  @relation("friend")
+  friendsRelation UserFriends[]  @relation("friendRelation")
 }
 
-model Follows {
-  follower    User @relation("follower", fields: [followerId], references: [id])
-  followerId  Int
-  following   User @relation("following", fields: [followingId], references: [id])
-  followingId Int
+model UserFriends {
+  friend                   User    @relation("friend", fields: [friendId], references: [id])
+  friendId                 Int
+  friendRelation           User    @relation("friendRelation", fields: [friendRelationId], references: [id])
+  friendRelationId         Int
+  isFriendRequestConfirmed Boolean
 
-  @@id([followerId, followingId])
+  @@id([friendId, friendRelationId])
 }
 
 model UserPlaylist {

@@ -9,6 +9,7 @@ import type { User } from '@prisma/client';
 export type UserContext = {
   user: User;
 };
+
 export const createContext = async (req) => {
   try {
     const authToken = req.headers.get('Authorization');

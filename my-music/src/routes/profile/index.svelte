@@ -20,7 +20,7 @@
   <h1 class="text-3xl font-bold">User details</h1>
 </div>
 
-<div class="card-body bg-base-200">
+<div class="card-body bg-base-300">
   <div class="items-center flex flex-col ">
     <img
       tabindex="0"
@@ -33,10 +33,7 @@
   </div>
   <div class="mt-3">
     <div class="space-x-12 justify-center flex flex-row">
-      <ProfileStatsItem value={`${userQuery?.followersCount?.toString()} following`}>
-        <FriendsIcon small={true} />
-      </ProfileStatsItem>
-      <ProfileStatsItem value={`${userQuery?.followedByCount?.toString()} followers`}>
+      <ProfileStatsItem value={`${userQuery?.friends?.toString()} friends`}>
         <FriendsIcon small={true} />
       </ProfileStatsItem>
       <ProfileStatsItem value={`${userQuery?.likedSongs?.toString()} songs liked`}>

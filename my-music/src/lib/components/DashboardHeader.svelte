@@ -1,12 +1,20 @@
-<script>
+<script lang="ts">
   import { Routes } from '$lib/routes';
+  import trcp, { InferQueryOutput } from '$lib/client/trpc';
+  import { onMount } from 'svelte';
+
+  let friendRequestsQuery: InferQueryOutput<'user:friends'> = [];
+  onMount(async () => {
+    friendRequestsQuery = await trcp.query('user:friends', {
+      fetchFriendRequests: true
+    });
+  });
 </script>
 
 <header class="z-10 py-4 bg-base-100">
   <div
     class="max-w-screen-2xl flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
   >
-    <!-- Mobile hamburger -->
     <button
       class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
       aria-label="Menu"
@@ -51,8 +59,16 @@
             />
             <ul
               tabindex="0"
-              class="p-4 mt-3 shadow menu dropdown-content rounded-xl bg-neutral w-52"
+              class="p-7 mt-3 shadow menu dropdown-content rounded-xl bg-neutral w-60"
             >
+              <li>
+                <a class="text-neutral-content" href="/friends/requests"
+                  >Friend Requests
+                  <span class="text-info">
+                    ({friendRequestsQuery?.length})
+                  </span>
+                </a>
+              </li>
               <li>
                 <a class="text-neutral-content" href="/profile">Profile</a>
               </li>

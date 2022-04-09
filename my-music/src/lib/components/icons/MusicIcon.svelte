@@ -2,7 +2,9 @@
   export let small = false;
 </script>
 
-<svg class={!small ? 'h-8 w-8' : 'h-5 w-5'} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+<svg 
+
+class={!small ? 'h-8 w-8' : 'h-5 w-5'} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
   <g transform="matrix(3.4285714285714284,0,0,3.4285714285714284,0,0)"
     ><g>
       <circle

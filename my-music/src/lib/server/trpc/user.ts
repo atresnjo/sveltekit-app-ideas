@@ -1,4 +1,5 @@
 import prismaClient from '$lib/server/prismaClient';
+import { prisma } from '@prisma/client';
 import * as trpc from '@trpc/server';
 import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
@@ -14,18 +15,45 @@ export default trpc
         },
         include: {
           playlist: true,
-          followedBy: true,
-          following: true
+          friends: true
         }
       });
 
       return {
         username: ctx.user.username,
         email: ctx.user.email,
-        followersCount: user?.following.length,
-        followedByCount: user?.followedBy.length,
+        friends: user?.friends.length,
         likedSongs: user?.playlist.length
       };
+    }
+  })
+  .query('friends', {
+    input: z.object({
+      fetchFriendRequests: z.boolean()
+    }),
+    resolve: async ({ ctx, input: { ...data } }: any) => {
+      var user = await prismaClient.user.findFirst({
+        where: {
+          id: ctx.user.id
+        },
+        include: {
+          friendsRelation: {
+            where: {
+              isFriendRequestConfirmed: !data.fetchFriendRequests
+            },
+            include: {
+              friend: {
+                select: {
+                  username: true,
+                  id: true
+                }
+              }
+            }
+          }
+        }
+      });
+
+      return user?.friendsRelation;
     }
   })
   .mutation('update_me', {
@@ -69,6 +97,50 @@ export default trpc
           playlist: {
             create: {
               songId: song.id
+            }
+          }
+        }
+      });
+    }
+  })
+  .mutation('reject_friend_request', {
+    input: z.object({
+      friendId: z.number()
+    }),
+    resolve: async ({ ctx, input: { ...data } }) => {
+      var context = ctx as UserContext;
+      await prismaClient.userFriends.delete({
+        where: {
+          friendId_friendRelationId: {
+            friendRelationId: context.user.id,
+            friendId: data.friendId
+          }
+        }
+      });
+    }
+  })
+  .mutation('accept_friend_request', {
+    input: z.object({
+      friendId: z.number()
+    }),
+    resolve: async ({ ctx, input: { ...data } }) => {
+      var context = ctx as UserContext;
+      await prismaClient.user.update({
+        where: {
+          id: context!.user!.id
+        },
+        data: {
+          friendsRelation: {
+            update: {
+              data: {
+                isFriendRequestConfirmed: true
+              },
+              where: {
+                friendId_friendRelationId: {
+                  friendId: data.friendId,
+                  friendRelationId: context.user.id
+                }
+              }
             }
           }
         }

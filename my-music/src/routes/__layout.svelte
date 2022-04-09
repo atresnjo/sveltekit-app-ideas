@@ -7,11 +7,13 @@
   import { onMount } from 'svelte';
   import '../app.postcss';
   import { SvelteToast } from '@zerodevx/svelte-toast';
+  import { browser } from '$app/env';
+  import Modal from 'svelte-simple-modal';
 
   onMount(() => {
     const token = localStorage.getItem('auth_token');
     if (token) {
-      goto('/home');
+      
     }
   });
 </script>
@@ -21,13 +23,17 @@
 </svelte:head>
 
 <SvelteToast />
+{#if browser}
 
-<div class="flex h-screen">
-  <Sidebar />
-  <div class="flex flex-col flex-1 w-full">
-    <DashboardHeader />
-    <MainContentContainer>
-      <slot />
-    </MainContentContainer>
+<Modal>
+  <div class="flex h-screen">
+    <Sidebar />
+    <div class="flex flex-col flex-1 w-full">
+      <DashboardHeader />
+      <MainContentContainer>
+        <slot />
+      </MainContentContainer>
+    </div>
   </div>
-</div>
+</Modal>
+{/if}
